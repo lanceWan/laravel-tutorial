@@ -5,7 +5,10 @@
     <div class="animate form login_form">
         <section class="login_content">
           <form method="POST" action="{{ url('/login') }}">
+
+            {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             {{ csrf_field() }}
+
             <h1>Login Form</h1>
             <div>
                 <input type="text" class="form-control{{ $errors->has('email') ? ' parsley-error' : '' }}" placeholder="email" name="email" value="{{old('email')}}" />
