@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use App\Models\Permission;
 class HomeController extends Controller
 {
     /**
@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        dd(array_column(Permission::all()->toArray(), 'id') );
         return view('home');
     }
 }
