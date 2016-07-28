@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -17,4 +16,6 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', ['middleware' => ['auth'], 'uses' => 'HomeController@index']);
+
+Route::get('/admin','Admin\HomeController@index');

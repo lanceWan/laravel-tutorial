@@ -10,6 +10,17 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+                @role('admin')
+                    <div class="panel-body">
+                        <p>This is visible to users with the admin role. Gets translated to 
+                        \Entrust::role('admin')</p>
+                    </div>
+                @endrole
+                @permission('create users')
+                    <div class="panel-body">
+                        <p>create users</p>
+                    </div>
+                @endpermission
             </div>
         </div>
     </div>
