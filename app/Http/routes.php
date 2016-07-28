@@ -18,4 +18,7 @@ Route::auth();
 
 Route::get('/home', ['middleware' => ['auth'], 'uses' => 'HomeController@index']);
 
-Route::get('/admin','Admin\HomeController@index');
+Route::group(['namespace' => 'Admin','prefix' => 'admin' ,'middleware' => ['auth']],function($router){
+	// 首页路由
+	require(__DIR__.'/Routes/HomeRoute.php');
+});

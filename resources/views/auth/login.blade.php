@@ -9,7 +9,7 @@
         {{csrf_field()}}
         <h1>Login</h1>
         <div>
-          <input type="text" class="form-control {{ $errors->has(config('admin.globals.username')) ? ' parsley-error' : '' }}" placeholder="{{config('admin.globals.username')}}" name="{{config('admin.globals.username')}}" />
+          <input type="text" class="form-control {{ $errors->has(config('admin.globals.username')) ? ' parsley-error' : '' }}" placeholder="{{config('admin.globals.username')}}" name="{{config('admin.globals.username')}}" value="{{old(config('admin.globals.username'))}}" />
           @if ($errors->has(config('admin.globals.username')))
             <p class="text-danger text-left "><strong>{{ $errors->first(config('admin.globals.username')) }}</strong></p> 
           @endif

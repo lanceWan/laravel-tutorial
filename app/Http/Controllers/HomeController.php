@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\Permission;
 use Entrust;
+use Redirect;
 class HomeController extends Controller
 {
     /**
@@ -44,7 +45,7 @@ class HomeController extends Controller
         // 
         // dd(auth()->user()->ability(array('admin', 'user'), array('create users', 'edit users'),['validate_all' => true,'return_type' => 'both']));
 
-        
+        Entrust::routeNeedsRole('/home', 'owner', 'admin');
 
         return view('home');
     }
