@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         $users = factory('App\User',3)->create([
         	'password' => bcrypt('123456')
         ])->each(function($u) use ($userRole){
-            $u->roles()->attach($userRole->id);
+            $u->roles()->attach([$userRole->id]);
         });
     }
 }
