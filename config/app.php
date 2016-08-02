@@ -159,6 +159,8 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
         // 权限
         Zizaco\Entrust\EntrustServiceProvider::class,
+        // flash 提示
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
@@ -209,7 +211,6 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         // 权限
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
-
     ],
 
 ];

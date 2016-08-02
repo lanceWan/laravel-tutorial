@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "mews/captcha": "^2.1",
         "zizaco/entrust": "5.2.x-dev",
-        "predis/predis": "1.0.*"
+        "predis/predis": "1.0.*",
+        "laracasts/flash": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
