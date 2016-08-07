@@ -16,7 +16,8 @@ class MenuController extends Controller
 
     public function index()
     {
-    	return view('admin.menu.list');
+        $menu = $this->menu->findByField('parent_id',0);
+    	return view('admin.menu.list')->with(compact('menu'));
     }
 
     /**
@@ -27,7 +28,6 @@ class MenuController extends Controller
      */
     public function store(MenuRequest $request)
     {
-
     	$result = $this->menu->create($request->all());
     	if ($result) {
     		flash('添加菜单成功', 'success');

@@ -84,6 +84,7 @@
   <div class="col-md-6">
     <div class="x_panel">
       <div class="x_title">
+
         <h2>菜单数据 </h2>
         <ul class="nav navbar-right panel_toolbox">
           <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -132,10 +133,8 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <select class="select2_single form-control" tabindex="-1" name="parent_id">
-                <option value="0">顶级</option>
-                <option value="AK">Alaska</option>
-                <option value="HI">Hawaii</option>
-                <option value="CA">California</option>
+                @inject('menus','App\Repositories\Presenter\MenuPresenter')
+                {!! $menus->getMenu($menu) !!}
               </select>
             </div>
           </div>
