@@ -17,6 +17,12 @@ class MenuController extends Controller
     public function index()
     {
         $menu = $this->menu->findByField('parent_id',0);
+
+        $menus = $this->menu->sortMenu($this->menu->all()->toArray());
+
+        // dd($menus);
+        dd($this->menu->sortMenuSetCache($menus));
+
     	return view('admin.menu.list')->with(compact('menu'));
     }
 

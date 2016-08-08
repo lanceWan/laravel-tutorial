@@ -37,7 +37,7 @@ abstract class Repository implements RepositoryInterface
 	* @return mixed
 	*/
 	public function all($columns = ['*']){
-		
+		return $this->model->all($columns);
 	}
 	/**
 	* Find data by id
