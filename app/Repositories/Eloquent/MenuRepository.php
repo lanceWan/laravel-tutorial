@@ -2,6 +2,7 @@
 namespace App\Repositories\Eloquent;
 use App\Repositories\Eloquent\Repository;
 use App\Models\Menu;
+use Cache;
 class MenuRepository extends Repository
 {
 	
@@ -41,15 +42,33 @@ class MenuRepository extends Repository
 	 * @param  string     $value [description]
 	 * @return [type]            [description]
 	 */
-	public function sortMenuSetCache($menus)
+	public function sortMenuSetCache()
 	{
-		foreach ($menus as $key => &$v) {
-			if ($v['child']) {
-				$sort = array_column($v['child'], 'sort');
-				array_multisort($sort,SORT_DESC,$v['child']);
+		$menus = $this->model->orderBy('sort','desc')->get()->toArray();
+		if ($menus) {
+			$menuList = $this->sortMenu($menus);
+			foreach ($menuList as $key => &$v) {
+				if ($v['child']) {
+					$sort = array_column($v['child'], 'sort');
+					array_multisort($sort,SORT_DESC,$v['child']);
+				}
 			}
+			Cache::put('menuList', $menuList);
+			
+			return $menuList;
+			
 		}
-		return $menus;
+		return '';
+	}
+	/**
+	 * [getMenuList description]
+	 * @author 晚黎
+	 * @date   2016-08-10
+	 * @return [type]     [description]
+	 */
+	public function getMenuList()
+	{
+		return $this->sortMenuSetCache();
 	}
 
 

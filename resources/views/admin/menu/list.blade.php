@@ -6,6 +6,7 @@
 <link href="{{asset('backend/vendors/jquery-nestable/jquery.nestable.css')}}" rel="stylesheet">
 @endsection
 @section('content')
+@inject('menus','App\Repositories\Presenter\MenuPresenter')
 <div class="">
 <div class="page-title">
   <div class="title_left">
@@ -41,6 +42,7 @@
       <div class="x_content bs-example-popovers">
         <div class="dd" id="nestable_list_3">
             <ol class="dd-list">
+                {!! $menus->getMenuList($menuList) !!}
                 <li class="dd-item dd3-item" data-id="13">
                     <div class="dd-handle dd3-handle"> </div>
                     <div class="dd3-content"> 
@@ -51,28 +53,6 @@
                       <a href="javascript:;" data-id="##" class="btn-xs destoryMenu" data-original-title="##" data-toggle="tooltip"  data-placement="top"><i class="fa fa-trash"></i><form action="#" method="POST" name="delete_item" style="display:none"><input type="hidden" name="_method" value="delete"><input type="hidden" name="_token" value=""></form></a>
                       </div>
                     </div>
-                </li>
-                <li class="dd-item dd3-item" data-id="14">
-                    <div class="dd-handle dd3-handle"> </div>
-                    <div class="dd3-content"> Item 14 </div>
-                </li>
-                <li class="dd-item dd3-item" data-id="15">
-                    <div class="dd-handle dd3-handle"> </div>
-                    <div class="dd3-content"> Item 15 </div>
-                    <ol class="dd-list">
-                        <li class="dd-item dd3-item" data-id="16">
-                            <div class="dd-handle dd3-handle"> </div>
-                            <div class="dd3-content"> Item 16 </div>
-                        </li>
-                        <li class="dd-item dd3-item" data-id="17">
-                            <div class="dd-handle dd3-handle"> </div>
-                            <div class="dd3-content"> Item 17 </div>
-                        </li>
-                        <li class="dd-item dd3-item" data-id="18">
-                            <div class="dd-handle dd3-handle"> </div>
-                            <div class="dd3-content"> Item 18 </div>
-                        </li>
-                    </ol>
                 </li>
             </ol>
         </div>
@@ -133,7 +113,6 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12">父级菜单</label>
             <div class="col-md-9 col-sm-9 col-xs-12">
               <select class="select2_single form-control" tabindex="-1" name="parent_id">
-                @inject('menus','App\Repositories\Presenter\MenuPresenter')
                 {!! $menus->getMenu($menu) !!}
               </select>
             </div>
