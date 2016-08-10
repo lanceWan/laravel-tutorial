@@ -53,8 +53,8 @@ class MenuRepository extends Repository
 					array_multisort($sort,SORT_DESC,$v['child']);
 				}
 			}
-			Cache::put('menuList', $menuList);
-			
+			// 缓存菜单数据
+			Cache::forever(config('admin.globals.cache.menuList'),$menuList);
 			return $menuList;
 			
 		}
@@ -68,6 +68,10 @@ class MenuRepository extends Repository
 	 */
 	public function getMenuList()
 	{
+		// 判断数据是否缓存
+		if (Cache::has(config('admin.globals.cache.menuList'))) {
+			return Cache::get(config('admin.globals.cache.menuList'));
+		}
 		return $this->sortMenuSetCache();
 	}
 
