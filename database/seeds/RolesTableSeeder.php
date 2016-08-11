@@ -27,11 +27,11 @@ class RolesTableSeeder extends Seeder
 
 		$allPermission = array_column(Permission::all()->toArray(), 'id');
 		$admin->perms()->sync($allPermission);
-		// $owner->attachPermissions(array($createPost, $editUser));
 
 		// 普通管理
-		$createUser = Permission::where('display_name','创建用户')->first();
-		$owner->attachPermission($createUser);
+		$createUser = Permission::where('display_name','添加菜单')->first();
+		$loginBackend = Permission::where('name','admin.system.login')->first();
+		$owner->attachPermissions([$createUser,$loginBackend]);
 
     }
 }
