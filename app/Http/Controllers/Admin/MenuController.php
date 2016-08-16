@@ -32,11 +32,31 @@ class MenuController extends Controller
     public function store(MenuRequest $request)
     {
     	$result = $this->menu->create($request->all());
+        // 刷新缓存
+        $this->menu->sortMenuSetCache();
     	if ($result) {
     		flash('添加菜单成功', 'success');
     	}else{
 			flash('添加菜单失败', 'error');
     	}
     	return redirect('admin/menu');
+    }
+
+    /**
+     * 修改菜单获取数据
+     * @author 晚黎
+     * @date   2016-08-17
+     * @param  [type]     $id [description]
+     * @return [type]         [description]
+     */
+    public function edit($id)
+    {
+        // $menu = $this->menu->find($id);
+        // return response()->json($menu);
+    }
+
+    public function update()
+    {
+        
     }
 }

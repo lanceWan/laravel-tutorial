@@ -147,16 +147,12 @@
 <script src="{{asset('backend/vendors/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- nestable -->
 <script src="{{asset('backend/vendors/jquery-nestable/jquery.nestable.js')}}"></script>
+{{-- layer --}}
+<script src="{{asset('backend/vendors/layer/layer.js')}}"></script>
+<script src="{{asset('backend/js/menu/menu-list.js')}}"></script>
 <script>
   $(document).ready(function() {
-    // Select2
-    $(".select2_single").select2({
-      placeholder: "Select a state",
-      allowClear: true
-    });
-
-    // nestable
-    $('#nestable_list_3').nestable();
+    MenuList.init();
   });
 </script>
 @endsection

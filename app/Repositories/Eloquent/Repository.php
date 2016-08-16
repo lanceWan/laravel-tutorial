@@ -48,7 +48,7 @@ abstract class Repository implements RepositoryInterface
 	* @return mixed
 	*/
 	public function find($id, $columns = ['*']){
-
+		return $this->model->select($columns)->find($id);
 	}
 	/**
 	* Find data by field and value
