@@ -23,11 +23,16 @@ class MenuRequest extends Request
      */
     public function rules()
     {
-        return [
-            'name' => 'required|unique:menus,name',
+        $rules = [
             'parent_id' => 'required',
             'url' => 'required',
         ];
+        if (request('id','')) {
+            $rules['name'] = 'required|unique:menus,name,'.$this->id;
+        }else{
+            $rules['name'] = 'required|unique:menus,name';
+        }
+        return $rules;
     }
 
     public function messages()

@@ -75,6 +75,41 @@ class MenuRepository extends Repository
 		return $this->sortMenuSetCache();
 	}
 
+	public function editMenu($id)
+	{
+		$menu = $this->model->find($id)->toArray();
+		if ($menu) {
+			$menu['update'] = url('admin/menu/'.$id);
+    		$menu['msg'] = '加载成功';
+    		$menu['status'] = true;
+			return $menu;
+		}
+		return ['status' => false,'msg' => '加载失败'];
+	}
+	/**
+	 * 修改菜单
+	 * @author 晚黎
+	 * @date   2016-08-19
+	 * @param  [type]     $request [description]
+	 * @return [type]              [description]
+	 */
+	public function updateMenu($request)
+    {
+        $menu = $this->model->find($request->id);
+		if ($menu) {
+			
+			$isUpdate = $menu->update($request->all());
+			if ($isUpdate) {
+				$this->sortMenuSetCache();
+				flash('修改菜单成功', 'success');
+				return true;
+			}
+			flash('修改菜单失败', 'error');
+			return false;
+		}
+		abort(404,'菜单数据找不到');
+    }
+
 
 	
 }

@@ -51,12 +51,19 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        // $menu = $this->menu->find($id);
-        // return response()->json($menu);
+        $menu = $this->menu->editMenu($id);
+        return response()->json($menu);
     }
-
-    public function update()
+    /**
+     * 修改菜单数据
+     * @author 晚黎
+     * @date   2016-08-19
+     * @param  MenuRequest $request [description]
+     * @return [type]               [description]
+     */
+    public function update(MenuRequest $request)
     {
-        
+        $this->menu->updateMenu($request);
+        return redirect('admin/menu');
     }
 }

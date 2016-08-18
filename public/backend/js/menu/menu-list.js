@@ -30,22 +30,25 @@ var MenuList = function() {
 		        success:function(menu) {
 		        	// 关闭loading
 		        	layer.closeAll('loading');
-					menuFun.initAttribute(menu);
-					layer.msg(menu.msg,{icon:6});
+		        	if (menu.status) {
+						menuFun.initAttribute(menu,select2);
+		        	}
+					layer.msg(menu.msg);
 		        }
 	      });
 	    });
 
 	    var menuFun = function() {
-		    var menuAttribute = function(menu) {
+		    var menuAttribute = function(menu,select2) {
 		      $('input[name=name]').val(menu.name);
-		      select2.val(menu.pid).trigger("change");
+		      select2.val(menu.parent_id).trigger("change");
 		      $('input[name=icon]').val(menu.icon);
 		      $('input[name=url]').val(menu.url);
 		      $('input[name=heightlight_url] ').val(menu.heightlight_url);
 		      $('input[name=sort]').val(menu.sort);
 		      $('#menuForm').attr('action',menu.update);
 		      $('#menuForm').append('<input type="hidden" name="_method" value="PATCH">');
+		      $('#menuForm').append('<input type="hidden" name="id" value="'+menu.id+'">');
 		    };
 		    return {
 		      initAttribute : menuAttribute

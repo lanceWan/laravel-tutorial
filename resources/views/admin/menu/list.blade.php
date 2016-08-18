@@ -85,7 +85,7 @@
             </div>
         @endif
         <br />
-        <form class="form-horizontal form-label-left" action="{{url('admin/menu')}}" method="post">
+        <form class="form-horizontal form-label-left" id="menuForm" action="{{url('admin/menu')}}" method="post">
           {!!csrf_field()!!}
           <div class="form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12">菜单名称</label>
