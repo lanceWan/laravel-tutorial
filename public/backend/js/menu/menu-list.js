@@ -15,6 +15,11 @@ var MenuList = function() {
 	    	var _item = $(this);
 	    	// 改变select2默认值
 	    	select2.val(_item.attr('data-pid')).trigger("change");
+	    	// 清除修改按钮的数据
+	    	$('#method').remove();
+	    	$('input[name=id]').remove();
+	    	// 修改表单action
+	    	$('#menuForm').attr('action','/admin/menu');
 	    });
 
 	    // 修改菜单按钮事件
@@ -47,8 +52,17 @@ var MenuList = function() {
 		      $('input[name=heightlight_url] ').val(menu.heightlight_url);
 		      $('input[name=sort]').val(menu.sort);
 		      $('#menuForm').attr('action',menu.update);
-		      $('#menuForm').append('<input type="hidden" name="_method" value="PATCH">');
-		      $('#menuForm').append('<input type="hidden" name="id" value="'+menu.id+'">');
+		      var _method = $('#method');
+		      if (_method.length < 1) {
+			      $('#menuForm').append('<input type="hidden" id="method" name="_method" value="PATCH">');
+		      }
+		      // 判断表单是否存在相关数据
+		      var _id = $('input[name=id]');
+ 		      if (_id.length > 0) {
+ 		      	_id.val(menu.id);
+ 		      }else{
+			    $('#menuForm').append('<input type="hidden" name="id" value="'+menu.id+'">');
+ 		      }
 		    };
 		    return {
 		      initAttribute : menuAttribute
