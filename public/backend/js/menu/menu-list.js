@@ -12,14 +12,16 @@ var MenuList = function() {
 	    });
 	    // 添加按钮事件
 	    $(document).on('click','.createMenu',function () {
-	    	var _item = $(this);
-	    	// 改变select2默认值
-	    	select2.val(_item.attr('data-pid')).trigger("change");
 	    	// 清除修改按钮的数据
 	    	$('#method').remove();
 	    	$('input[name=id]').remove();
 	    	// 修改表单action
 	    	$('#menuForm').attr('action','/admin/menu');
+	    	// 清空表单
+	    	$('#menuForm input.form-control').val('');
+	    	var _item = $(this);
+	    	// 改变select2默认值
+	    	select2.val(_item.attr('data-pid')).trigger("change");
 	    });
 
 	    // 修改菜单按钮事件
@@ -41,6 +43,22 @@ var MenuList = function() {
 					layer.msg(menu.msg);
 		        }
 	      });
+	    });
+	    /**
+	     * 删除菜单
+	     * @author 晚黎
+	     * @date   2016-08-22T06:51:25+0800
+	     * @param  {[type]}                 ) {	              		    } [description]
+	     * @return {[type]}                   [description]
+	     */
+	    $(document).on('click','.destoryMenu',function () {
+	    	var _delete = $(this).attr('data-id');
+	    	//询问框
+			layer.confirm('确定要删除菜单？', {
+			  btn: ['确定','取消'] //按钮
+			}, function(){
+			  $('form[name=delete_item'+_delete+']').submit();
+			});
 	    });
 
 	    var menuFun = function() {

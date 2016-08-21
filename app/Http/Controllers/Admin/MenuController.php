@@ -66,4 +66,15 @@ class MenuController extends Controller
         $this->menu->updateMenu($request);
         return redirect('admin/menu');
     }
+    /**
+     * 删除菜单
+     * @author 晚黎
+     * @date   2016-08-22T07:23:20+0800
+     * @param  [type]                   $id [description]
+     * @return [type]                       [description]
+     */
+    public function destroy($id){
+        $this->menu->destroyMenu($id);
+        return redirect('admin/menu');
+    }
 }

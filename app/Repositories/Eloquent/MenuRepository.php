@@ -109,7 +109,22 @@ class MenuRepository extends Repository
 		}
 		abort(404,'菜单数据找不到');
     }
-
-
-	
+    /**
+     * 删除菜单
+     * @author 晚黎
+     * @date   2016-08-22T07:25:20+0800
+     * @param  [type]                   $id [description]
+     * @return [type]                       [description]
+     */
+    public function destroyMenu($id){
+    	$isDelete = $this->model->destroy($id);
+    	if ($isDelete) {
+    		// 更新缓存数据
+    		$this->sortMenuSetCache();
+    		flash('删除菜单成功', 'success');
+			return true;
+    	}
+    	flash('删除菜单失败', 'error');
+		return false;
+    }
 }
