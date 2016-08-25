@@ -98,4 +98,47 @@ class MenuPresenter
 		$action .= '</div>';
 		return $action;
 	}
+
+	/**
+	 * 左侧菜单渲染
+	 * @author 晚黎
+	 * @date   2016-08-26
+	 * @param  string     $value [description]
+	 * @return [type]            [description]
+	 */
+	public function sidebarMenus($menus)
+	{
+		$html = '';
+		if ($menus) {
+			$html = '<li>';
+			foreach ($menus as $v) {
+				if ($v['child']) {
+					$html .= '<li><a><i class="'.$v['icon'].'e"></i> '.$v['name'].' <span class="fa fa-chevron-down"></span></a>'.$this->getSidebarChildMenu($v['child']).'</li>';
+				}else{
+					$html .= '<li><a><i class="'.$v['icon'].'e"></i> '.$v['name'].'</a></li>';
+				}
+			}
+			$html .= '</li>';
+		}
+		return $html;
+	}
+	/**
+	 * 左侧菜单子菜单渲染
+	 * @author 晚黎
+	 * @date   2016-08-26
+	 * @param  string     $childMenu [description]
+	 * @return [type]                [description]
+	 */
+	public function getSidebarChildMenu($childMenu='')
+	{
+		$html = '';
+		if ($childMenu) {
+			$html = '<ul class="nav child_menu">';
+			foreach ($childMenu as $v) {
+				$html .= '<li><a href="#">'.$v['name'].'</a></li>';
+			}
+			$html .= '</ul>';
+		}
+		return $html;
+	}
 }

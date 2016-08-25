@@ -25,6 +25,7 @@ class MenuRequest extends Request
     {
         $rules = [
             'parent_id' => 'required',
+            'slug' => 'required',
             'url' => 'required',
         ];
         if (request('id','')) {
@@ -41,6 +42,7 @@ class MenuRequest extends Request
             'name.required' => '菜单名称不能为空',
             'name.unique' => '菜单名称不能重复',
             'parent_id.required' => '菜单层级不能为空',
+            'slug.required' => '菜单权限不能为空',
             'url.required' => '菜单链接不能为空',
         ];
     }

@@ -21,6 +21,12 @@ class PermissionsTableSeeser extends Seeder
          * 菜单权限
          */
         Permission::create([
+            'name' => 'admin.system.manage',
+            'display_name' => '系统管理',
+            'description' => '系统管理',
+        ]);
+
+        Permission::create([
             'name' => 'admin.menus.list',
             'display_name' => '菜单列表',
             'description' => '菜单列表',

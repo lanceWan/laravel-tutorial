@@ -10,6 +10,7 @@ class Menu extends Model
 		'name',
         'icon',
         'parent_id',
+        'slug',
         'url',
         'heightlight_url',
         'sort',

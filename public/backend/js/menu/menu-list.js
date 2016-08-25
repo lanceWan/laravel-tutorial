@@ -68,6 +68,7 @@ var MenuList = function() {
 		      $('input[name=icon]').val(menu.icon);
 		      $('input[name=url]').val(menu.url);
 		      $('input[name=heightlight_url] ').val(menu.heightlight_url);
+		      $('input[name=slug] ').val(menu.slug);
 		      $('input[name=sort]').val(menu.sort);
 		      $('#menuForm').attr('action',menu.update);
 		      var _method = $('#method');
