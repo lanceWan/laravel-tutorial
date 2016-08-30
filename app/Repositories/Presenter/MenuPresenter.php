@@ -112,10 +112,12 @@ class MenuPresenter
 		if ($menus) {
 			$html = '<li>';
 			foreach ($menus as $v) {
-				if ($v['child']) {
-					$html .= '<li><a><i class="'.$v['icon'].'e"></i> '.$v['name'].' <span class="fa fa-chevron-down"></span></a>'.$this->getSidebarChildMenu($v['child']).'</li>';
-				}else{
-					$html .= '<li><a><i class="'.$v['icon'].'e"></i> '.$v['name'].'</a></li>';
+				if (auth()->user()->can($v['slug'])) {
+					if ($v['child']) {
+						$html .= '<li class="'.active_class(if_uri_pattern(explode(',',$v['heightlight_url']))).'"><a><i class="'.$v['icon'].'"></i> '.$v['name'].' <span class="fa fa-chevron-down"></span></a>'.$this->getSidebarChildMenu($v['child']).'</li>';
+					}else{
+						$html .= '<li class="'.active_class(if_uri_pattern([$v['heightlight_url']])).'"><a href="'.$v['url'].'"><i class="'.url($v['url']).'"></i> '.$v['name'].'</a></li>';
+					}
 				}
 			}
 			$html .= '</li>';
@@ -133,9 +135,11 @@ class MenuPresenter
 	{
 		$html = '';
 		if ($childMenu) {
-			$html = '<ul class="nav child_menu">';
+			$html = '<ul class="nav child_menu" style="display:'.active_class(if_uri_pattern(['admin/menu*']),'block','none').'">';
 			foreach ($childMenu as $v) {
-				$html .= '<li><a href="#">'.$v['name'].'</a></li>';
+				if (auth()->user()->can($v['slug'])) {
+					$html .= '<li class="'.active_class(if_uri_pattern([$v['heightlight_url']]),'current-page').'"><a href="'.url($v['url']).'">'.$v['name'].'</a></li>';
+				}
 			}
 			$html .= '</ul>';
 		}

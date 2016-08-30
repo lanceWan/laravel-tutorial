@@ -39,7 +39,7 @@ class MenusTableSeeder extends Seeder
         Menu::create([
         	'name' => '用户管理',
 	        'parent_id' => $system->id,
-            'slug' => 'admin.menus.add',
+            'slug' => 'admin.users.add',
 	        'url' => 'www.iwanli.me',
         ]);
 

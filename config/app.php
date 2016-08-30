@@ -161,6 +161,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         // flash 提示
         Laracasts\Flash\FlashServiceProvider::class,
+        // 高亮显示菜单
+        HieuLe\Active\ActiveServiceProvider::class,
 
     ],
 
@@ -211,6 +213,8 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
         // 权限
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        // 菜单高亮
+        'Active' => HieuLe\Active\Facades\Active::class,
     ],
 
 ];
