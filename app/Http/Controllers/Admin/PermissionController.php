@@ -6,9 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PermissionRequest;
+use App\Repositories\Eloquent\PermissionRepository;
 
 class PermissionController extends Controller
 {
+    private $permission;
+
+    function __construct(PermissionRepository $permission)
+    {
+        $this->permission = $permission;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +56,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.permission.create');
     }
 
     /**
@@ -56,9 +65,10 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PermissionRequest $request)
     {
-        //
+        $this->permission->createPermission($request->all());
+        return redirect('admin/permission');
     }
 
     /**
