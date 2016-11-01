@@ -30,23 +30,8 @@ class PermissionController extends Controller
 
     public function ajaxIndex()
     {
-        $draw = request('draw',1);
-        // $test = request('test','');
-        // dd($test);
-        $permissions = [];
-        for ($i=0; $i < 10; $i++) { 
-            $permissions[$i]['zhang'] = 'zhang'.rand(1,10);
-            $permissions[$i]['li'] = 'li'.rand(1,10);
-            $permissions[$i]['wang'] = 'wang'.rand(1,10);
-            $permissions[$i]['zhao'] = 'zhao'.rand(1,10);
-            $permissions[$i]['age'] = rand(1,10);
-        }
-        return response()->json([
-            'draw' => $draw,
-            'recordsTotal' => 10,
-            'recordsFiltered' => 10,
-            'data' => $permissions,
-        ]);
+        $result = $this->permission->ajaxIndex();
+        return response()->json($result);
     }
 
     /**

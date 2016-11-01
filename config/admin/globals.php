@@ -5,4 +5,8 @@ return [
 	'cache' => [
 		'menuList' => 'menuList',
 	],
+	'list' => [
+		'start' => 0,
+		'length' => 10
+	]
 ];
