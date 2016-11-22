@@ -4,7 +4,7 @@ use App\Repositories\Eloquent\Repository;
 use App\Models\Permission;
 class permissionRepository extends Repository
 {
-	
+
 	public function model()
 	{
 		return Permission::class;
@@ -59,6 +59,13 @@ class permissionRepository extends Repository
 
 	    $permission = $permission->orderBy($order['name'], $order['dir']);
     	$permissions = $permission->offset($start)->limit($length)->get();
+
+			if ($permissions) {
+				foreach ($permissions as &$v) {
+					$v->actionButton = $v->getEditActionButton();
+				}
+			}
+
     	//datatables固定返回格式
     	return [
 	        'draw' => $draw,

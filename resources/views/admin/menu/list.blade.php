@@ -50,7 +50,7 @@
   </div>
   <!-- end left panel -->
   <!-- right panel -->
-  @permission(config('admin.permissions.menus.add'))
+  @permission(config('admin.permissions.menu.add'))
   <div class="col-md-6">
     <div class="x_panel">
       <div class="x_title">

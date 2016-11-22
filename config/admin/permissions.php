@@ -1,14 +1,14 @@
 <?php
 return [
-	'menus' => [
-		'add' => 'admin.menus.add',
-		'edit' => 'admin.menus.edit',
-		'delete' => 'admin.menus.delete',
+	'menu' => [
+		'add' => 'menu.add',
+		'edit' => 'menu.edit',
+		'delete' => 'menu.delete',
 	],
-	'permissions' => [
-		'list' => 'admin.permissions.list',
-		'add' => 'admin.permissions.add',
-		'edit' => 'admin.permissions.edit',
-		'delete' => 'admin.permissions.delete',
+	'permission' => [
+		'list' => 'permission.list',
+		'add' => 'permission.add',
+		'edit' => 'permission.edit',
+		'delete' => 'permission.delete',
 	],
 ];

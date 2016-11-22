@@ -29,7 +29,7 @@
         <div class="x_title">
           <h2>权限列表</h2>
           <ul class="nav navbar-right panel_toolbox">
-            @permission(config('admin.permissions.permissions.add'))
+            @permission(config('admin.permissions.permission.add'))
             <li><a href="{{url('admin/permission/create')}}" class="btn btn-default"><i class="fa fa-plus"></i>添加</a>
             @endpermission
             </li>

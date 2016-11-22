@@ -3,7 +3,7 @@ namespace App\Repositories\Presenter;
 
 class MenuPresenter
 {
-	
+
 	public function getMenu($menus)
 	{
 		if ($menus) {
@@ -84,15 +84,15 @@ class MenuPresenter
 	protected function getActionButtons($id,$bool = true)
 	{
 		$action = '<div class="pull-right action-buttons">';
-		if (auth()->user()->can(config('admin.permissions.menus.add')) && $bool) {
+		if (auth()->user()->can(config('admin.permissions.menu.add')) && $bool) {
 			$action .= '<a href="javascript:;" data-pid="'.$id.'" class="btn-xs createMenu" data-toggle="tooltip"data-original-title="添加"  data-placement="top"><i class="fa fa-plus"></i></a>';
 		}
 
-		if (auth()->user()->can(config('admin.permissions.menus.edit'))) {
+		if (auth()->user()->can(config('admin.permissions.menu.edit'))) {
 			$action .= '<a href="javascript:;" data-href="'.url('admin/menu/'.$id.'/edit').'" class="btn-xs editMenu" data-toggle="tooltip"data-original-title="修改"  data-placement="top"><i class="fa fa-pencil"></i></a>';
 		}
 
-		if (auth()->user()->can(config('admin.permissions.menus.delete'))) {
+		if (auth()->user()->can(config('admin.permissions.menu.delete'))) {
 			$action .= '<a href="javascript:;" class="btn-xs destoryMenu" data-id="'.$id.'" data-original-title="删除"data-toggle="tooltip"  data-placement="top"><i class="fa fa-trash"></i><form action="'.url('admin/menu',[$id]).'" method="POST" name="delete_item'.$id.'" style="display:none"><input type="hidden"name="_method" value="delete"><input type="hidden" name="_token" value="'.csrf_token().'"></form></a>';
 		}
 		$action .= '</div>';

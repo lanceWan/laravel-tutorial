@@ -30,7 +30,7 @@ class RolesTableSeeder extends Seeder
 
 		// 普通管理
 		$createUser = Permission::where('display_name','添加菜单')->first();
-		$loginBackend = Permission::where('name','admin.system.login')->first();
+		$loginBackend = Permission::where('name','system.login')->first();
 		$owner->attachPermissions([$createUser,$loginBackend]);
 
     }

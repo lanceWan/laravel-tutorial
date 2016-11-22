@@ -32,22 +32,23 @@ var PermissionList = function() {
                 "name": "name",
                 "orderable" : false,
             },
-            { 
+            {
               "data": "description",
               "name": "description",
               "orderable" : false,
             },
-            { 
+            {
               "data": "created_at",
               "name": "created_at",
               "orderable" : true,
-            },{ 
+            },{
               "data": "updated_at",
               "name": "updated_at",
               "orderable" : true,
             },{
-              "data": "name",
-              "name": "name",
+              "data": "actionButton",
+              "name": "actionButton",
+              "type": "html",
               "orderable" : false,
             }],
           });

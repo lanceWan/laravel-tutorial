@@ -12,7 +12,7 @@ class PermissionsTableSeeser extends Seeder
     public function run()
     {
         Permission::create([
-            'name' => 'admin.system.login',
+            'name' => 'system.login',
             'display_name' => '登录后台',
             'description' => '登录后台',
         ]);
@@ -21,31 +21,31 @@ class PermissionsTableSeeser extends Seeder
          * 菜单权限
          */
         Permission::create([
-            'name' => 'admin.system.manage',
+            'name' => 'system.manage',
             'display_name' => '系统管理',
             'description' => '系统管理',
         ]);
 
         Permission::create([
-            'name' => 'admin.menus.list',
+            'name' => 'menu.list',
             'display_name' => '菜单列表',
             'description' => '菜单列表',
         ]);
 
         Permission::create([
-            'name' => 'admin.menus.add',
+            'name' => 'menu.add',
             'display_name' => '添加菜单',
             'description' => '添加菜单',
         ]);
 
         Permission::create([
-            'name' => 'admin.menus.edit',
+            'name' => 'menu.edit',
             'display_name' => '修改菜单',
             'description' => '修改菜单',
         ]);
 
         Permission::create([
-            'name' => 'admin.menus.delete',
+            'name' => 'menu.delete',
             'display_name' => '删除菜单',
             'description' => '删除菜单',
         ]);
@@ -55,25 +55,25 @@ class PermissionsTableSeeser extends Seeder
          * 权限
          */
         Permission::create([
-            'name' => 'admin.permissions.list',
+            'name' => 'permission.list',
             'display_name' => '权限列表',
             'description' => '权限列表',
         ]);
 
         Permission::create([
-            'name' => 'admin.permissions.add',
+            'name' => 'permission.add',
             'display_name' => '添加权限',
             'description' => '添加权限',
         ]);
 
         Permission::create([
-            'name' => 'admin.permissions.edit',
+            'name' => 'permission.edit',
             'display_name' => '修改权限',
             'description' => '修改权限',
         ]);
 
         Permission::create([
-            'name' => 'admin.permissions.delete',
+            'name' => 'permission.delete',
             'display_name' => '删除权限',
             'description' => '删除权限',
         ]);
@@ -82,55 +82,55 @@ class PermissionsTableSeeser extends Seeder
          * 角色
          */
         Permission::create([
-            'name' => 'admin.roles.delete',
+            'name' => 'role.delete',
             'display_name' => '删除角色',
             'description' => '删除角色',
         ]);
 
         Permission::create([
-            'name' => 'admin.roles.list',
+            'name' => 'role.list',
             'display_name' => '角色列表',
             'description' => '角色列表',
         ]);
 
         Permission::create([
-            'name' => 'admin.roles.add',
+            'name' => 'role.add',
             'display_name' => '添加角色',
             'description' => '添加角色',
         ]);
 
         Permission::create([
-            'name' => 'admin.roles.edit',
+            'name' => 'role.edit',
             'display_name' => '修改角色',
             'description' => '修改角色',
         ]);
 
-        
+
 
         /**
          * 角色
          */
 
         Permission::create([
-            'name' => 'admin.users.list',
+            'name' => 'user.list',
             'display_name' => '用户列表',
             'description' => '用户列表',
         ]);
 
         Permission::create([
-            'name' => 'admin.users.add',
+            'name' => 'user.add',
             'display_name' => '添加用户',
             'description' => '添加用户',
         ]);
 
         Permission::create([
-            'name' => 'admin.users.edit',
+            'name' => 'user.edit',
             'display_name' => '修改用户',
             'description' => '修改用户',
         ]);
 
         Permission::create([
-            'name' => 'admin.users.delete',
+            'name' => 'user.delete',
             'display_name' => '删除用户',
             'description' => '删除用户',
         ]);

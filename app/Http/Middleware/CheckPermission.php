@@ -18,15 +18,15 @@ class CheckPermission
         switch ($routeName) {
             case 'admin.'.$model.'.index':
             case 'admin.'.$model.'.ajaxIndex':
-                $permission = config('admin.permissions.'.$model.'s.list','');
+                $permission = config('admin.permissions.'.$model.'.list','');
                 break;
             case 'admin.'.$model.'.create':
             case 'admin.'.$model.'.store':
-                $permission = config('admin.permissions.'.$model.'s.add','');
+                $permission = config('admin.permissions.'.$model.'.add','');
                 break;
             case 'admin.'.$model.'.edit':
             case 'admin.'.$model.'.update':
-                $permission = config('admin.permissions.'.$model.'s.edit','');
+                $permission = config('admin.permissions.'.$model.'.edit','');
                 break;
 
             default:
