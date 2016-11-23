@@ -62,7 +62,7 @@ class permissionRepository extends Repository
 
 			if ($permissions) {
 				foreach ($permissions as &$v) {
-					$v->actionButton = $v->getEditActionButton();
+					$v->actionButton = $v->getActionButton();
 				}
 			}
 
