@@ -9,7 +9,10 @@ trait ActionButtonTrait{
    */
   public function getEditActionButton()
   {
+    if (auth()->user()->can(config('admin.permissions.permission.edit'))) {
       return '<a class="btn btn-warning btn-xs" href="'.url('admin/'.$this->action.'/'.$this->id.'/edit').'"><i class="fa fa-edit"></i> 修改</a> ';
+    }
+    return '';
   }
   /**
    * 查看按钮

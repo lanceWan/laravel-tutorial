@@ -74,4 +74,24 @@ class permissionRepository extends Repository
 	        'data' => $permissions,
 	    ];
 	}
+	// 修改权限视图数据
+	public function editView($id)
+	{
+		$permission = $this->find($id);
+		if ($permission) {
+			return $permission;
+		}
+		abort(404);
+	}
+	// 修改权限数据
+	public function updatePermission($attributes,$id)
+	{
+		$result = $this->update($attributes,$id);
+		if ($result) {
+			flash('修改权限成功');
+		}else{
+			flash('修改权限失败','error');
+		}
+		return $result;
+	}
 }
