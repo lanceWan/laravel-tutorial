@@ -4,7 +4,6 @@ use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\Exceptions\RepositoryException;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Container\Container as Application;
-
 abstract class Repository implements RepositoryInterface
 {
 	protected $app;

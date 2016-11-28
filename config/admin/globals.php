@@ -8,5 +8,8 @@ return [
 	'list' => [
 		'start' => 0,
 		'length' => 10
+	],
+	'permission' => [
+		'show' => false
 	]
 ];

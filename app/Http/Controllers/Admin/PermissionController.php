@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PermissionRequest;
 use App\Repositories\Eloquent\PermissionRepository;
-
 class PermissionController extends Controller
 {
     private $permission;

@@ -22,7 +22,9 @@ trait ActionButtonTrait{
    */
   public function getShowActionButton()
   {
+    if (auth()->user()->can(config('admin.permissions.permission.show')) && config('admin.globals.'.$this->action.'.show')) {
       return '<a class="btn btn-info btn-xs" href="'.url('admin/'.$this->action.'/'.$this->id).'"><i class="fa fa-edit"></i> 查看</a> ';
+    }
   }
   /**
    * 删除按钮
