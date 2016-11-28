@@ -32,7 +32,7 @@ trait ActionButtonTrait{
    */
   public function getDestroyActionButton()
   {
-      return '<a class="btn btn-danger btn-xs" href="'.url('admin/'.$this->action.'/'.$this->id).'"><i class="fa fa-edit"></i> 删除</a> ';
+      return '<a class="btn btn-danger btn-xs destroy_item" href="javascript:;"><i class="fa fa-edit"></i> 删除<form action="'.url('admin/'.$this->action.'/'.$this->id).'" method="POST" style="display:none"><input type="hidden" name="_method" value="delete"><input type="hidden" name="_token" value="'.csrf_token().'"></form></a> ';
   }
 
   /**

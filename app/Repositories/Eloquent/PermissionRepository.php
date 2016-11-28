@@ -94,4 +94,21 @@ class permissionRepository extends Repository
 		}
 		return $result;
 	}
+	/**
+	 * 删除权限
+	 * @author 晚黎
+	 * @date   2016-11-28
+	 * @param  [type]     $id [description]
+	 * @return [type]         [description]
+	 */
+	public function destroyPermission($id)
+	{
+		$result = $this->delete($id);
+		if ($result) {
+			flash('修改权限成功');
+		}else{
+			flash('修改权限失败','error');
+		}
+		return $result;
+	}
 }

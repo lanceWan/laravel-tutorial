@@ -94,13 +94,15 @@ class PermissionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 删除权限
+     * @author 晚黎
+     * @date   2016-11-28
+     * @param  [type]     $id [description]
+     * @return [type]         [description]
      */
     public function destroy($id)
     {
-        //
+        $this->permission->destroyPermission($id);
+        return redirect('admin/permission');
     }
 }

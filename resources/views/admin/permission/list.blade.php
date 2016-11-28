@@ -74,6 +74,7 @@
 @section('js')
 <script src="{{asset('backend/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('backend/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script src="{{asset('backend/vendors/layer/layer.js')}}"></script>
 <script src="{{asset('backend/js/permission/permission-list.js')}}"></script>
 <script>
   $(function () {
